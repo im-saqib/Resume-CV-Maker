@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Typography,Button} from '@material-ui/core';
 
-export default class ExperienceDetails extends Component {
+export default class Error extends Component {
     continue = (e) => {
         e.preventDefault();
         this.props.nextStep();
@@ -13,9 +13,8 @@ export default class ExperienceDetails extends Component {
     render() {
         return (
             <div>
-                <Typography variant='h4' align='left' >Experience Details</Typography>
-            <Button variant='contained' onClick={this.continue}>Continue</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
+                <Typography variant='h1' align='center' color='danger' >Error 404</Typography>
+                <Button variant='contained' href='/'>Home</Button>
             </div>
         )
     }
