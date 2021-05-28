@@ -13,7 +13,7 @@ export default class Welcome extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <Paper elevation='3'>
+                <Paper elevation = {3}>
                 <Typography variant='h6' color='primary' align='center'>Desing Your Resume</Typography>
                 </Paper>
                 <Button variant='contained' onClick={this.continue}>Continue</Button>

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import HomePage from "./components/Welcome";
 
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
+
 import PersonalDetails from "./components/forms/PersonalDetails";
 import EducationalDetails from "./components/forms/EducationalDetails";
 import ExperienceDetails from "./components/forms/ExperienceDetails";
@@ -10,6 +12,8 @@ import UploadPhoto from "./components/forms/UploadPhoto";
 import Confirm from "./components/forms/Confirm";
 import PrintPdf from "./components/forms/PrintPdf";
 import Error from "./components/Error";
+
+import initialValues from "./components/models/resumeScehma";
 
 export default class App extends Component {
   state = {
@@ -27,28 +31,71 @@ export default class App extends Component {
       step: step - 1,
     });
   };
+  initialValues = initialValues;
+  onSubmit = (values) => {
+    console.log("Form data", values);
+  };
   render() {
     const { step } = this.state;
     switch (step) {
       case 1:
-        return <HomePage nextStep={this.nextStep} />;
+        return (
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <HomePage nextStep={this.nextStep} />
+            </Formik>
+          </div>
+        );
       case 2:
         return (
-          <PersonalDetails nextStep={this.nextStep} prevStep={this.prevStep} />
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <PersonalDetails
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                onSubmit={this.onSubmit}
+              />
+            </Formik>
+          </div>
         );
       case 3:
         return (
-          <EducationalDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-          />
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <EducationalDetails
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                onSubmit={this.onSubmit}
+              />
+            </Formik>
+          </div>
         );
       case 4:
         return (
-          <ExperienceDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-          />
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <ExperienceDetails
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+              />
+            </Formik>
+          </div>
         );
       case 5:
         return (

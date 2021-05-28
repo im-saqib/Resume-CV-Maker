@@ -13,10 +13,11 @@ export default class Confirm extends Component {
     render() {
         return (
             <div>
-                <Typography variant='h4' align='left' >Confirm</Typography>
-            
-            <Button variant='contained' onClick={this.continue}>Continue</Button>
+                <Typography variant='h4' align='left' >Review your Credentials</Typography>
+                <div>
+                <Button variant='contained' onClick={this.continue}>Continue</Button>
                 <Button variant='contained' onClick={this.back}>Back</Button>
+                </div>
             </div>
         )
     }
