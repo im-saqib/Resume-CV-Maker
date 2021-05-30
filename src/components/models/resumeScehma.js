@@ -5,7 +5,9 @@ const initialValues = {
   DoB: "",
   age: "",
   eMail: "",
-  mobile: "",
+  web: "",
+  sMedia: [""],
+  mobile: [""],
   address: "",
   education: [
     {
@@ -23,6 +25,15 @@ const initialValues = {
       end: "",
     },
   ],
+  oQual: [
+    {
+      course: "",
+      skill: "",
+      duration: "",
+      start: "",
+      end: "",
+    },
+  ],
   skills: [
     {
       title: "",
@@ -33,6 +44,7 @@ const initialValues = {
       title: "",
     },
   ],
+  tagLine: "",
 };
 
 export default initialValues;

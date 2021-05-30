@@ -28,13 +28,13 @@ export default class ExperienceDetails extends Component {
                 <div>
                   {experience.map((experience, index) => (
                     <div key={index}>
-                      <label>Job Title</label>
+                      <Typography variant='h6' display='inline' color='primary'>Job Title</Typography>
                       <Field name={`experience[${index}].title`} />
-                      <label>Work Place Name</label>
+                      <Typography variant='h6' display='inline' color='primary'>Work Place Name</Typography>
                       <Field name={`experience[${index}].company`} />
-                      <label>Start Date</label>
+                      <Typography variant='h6' display='inline' color='primary'>Start Date</Typography>
                       <Field name={`experience[${index}].start`} />
-                      <label>End Date</label>
+                      <Typography variant='h6' display='inline' color='primary'>End Date</Typography>
                       <Field name={`experience[${index}].end`} />
                       {index > 0 && (
                         <button type='button' onClick={() => remove(index)}>

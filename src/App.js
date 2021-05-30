@@ -18,6 +18,7 @@ import initialValues from "./components/models/resumeScehma";
 export default class App extends Component {
   state = {
     step: 1,
+    data: "",
   };
   nextStep = () => {
     const { step } = this.state;
@@ -33,10 +34,19 @@ export default class App extends Component {
   };
   initialValues = initialValues;
   onSubmit = (values) => {
-    console.log("Form data", values);
+    this.setState({
+      data: { values },
+    });
+    // *** Helpful for debugging ***
+    // console.log("Form data", values);
+    // const { data } = this.state;
+    // console.log("State ", data);
   };
+
   render() {
-    const { step } = this.state;
+    const { step, data } = this.state;
+    const { values } = data;
+
     switch (step) {
       case 1:
         return (
@@ -61,7 +71,6 @@ export default class App extends Component {
               <PersonalDetails
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
-                onSubmit={this.onSubmit}
               />
             </Formik>
           </div>
@@ -77,7 +86,6 @@ export default class App extends Component {
               <EducationalDetails
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
-                onSubmit={this.onSubmit}
               />
             </Formik>
           </div>
@@ -99,16 +107,56 @@ export default class App extends Component {
         );
       case 5:
         return (
-          <OtherDetails nextStep={this.nextStep} prevStep={this.prevStep} />
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <OtherDetails nextStep={this.nextStep} prevStep={this.prevStep} />
+            </Formik>
+          </div>
         );
       case 6:
         return (
-          <UploadPhoto nextStep={this.nextStep} prevStep={this.prevStep} />
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <UploadPhoto nextStep={this.nextStep} prevStep={this.prevStep} />
+            </Formik>
+          </div>
         );
       case 7:
-        return <Confirm nextStep={this.nextStep} prevStep={this.prevStep} />;
+        return (
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <Confirm
+                values={values}
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+              />
+            </Formik>
+          </div>
+        );
       case 8:
-        return <PrintPdf prevStep={this.prevStep} />;
+        return (
+          <div>
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <PrintPdf nextStep={this.nextStep} prevStep={this.prevStep} />
+            </Formik>
+          </div>
+        );
       default:
         return <Error />;
     }

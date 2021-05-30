@@ -32,22 +32,22 @@ export default class EducationalDetails extends Component {
                 <div>
                   {education.map((education, index) => (
                     <div key={index}>
-                      <label>Major Subjects</label>
+                      <Typography variant='h6' display='inline'>Major Subjects</Typography>
                       <Field name={`education[${index}].major`} />
-                      <label>Total Marks</label>
+                      <Typography variant='h6' display='inline'>Total Marks</Typography>
                       <Field name={`education[${index}].totalMarks`} />
-                      <label>Obtained Marks</label>
+                      <Typography variant='h6' display='inline'>Obtained Marks</Typography>
                       <Field name={`education[${index}].oMarks`} />
-                      <label>Board or Institute</label>
+                      <Typography variant='h6' display='inline'>Board or Institute</Typography>
                       <Field name={`education[${index}].inst`} />
                       {index > 0 && (
-                        <button type='button' onClick={() => remove(index)}>
+                        <Button type='button' onClick={() => remove(index)}>
                           -
-                        </button>
+                        </Button>
                       )}
-                      <button type='button' onClick={() => push("")}>
+                      <Button type='button' onClick={() => push("")}>
                         +
-                      </button>
+                      </Button>
                     </div>
                   ))}
                 </div>
