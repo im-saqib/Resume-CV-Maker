@@ -1,8 +1,9 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 import purple from "@material-ui/core/colors/purple";
 import green from "@material-ui/core/colors/green";
+import { spacing } from "@material-ui/system";
 
-const theme = createMuiTheme({
+const theme = createMuiTheme((theme) => ({
   palette: {
     primary: {
       main: purple[500],
@@ -17,21 +18,12 @@ const theme = createMuiTheme({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    // padding: 200,
-    margin: "auto",
-    maxWidth: 500,
+  menuButton: {
+    marginRight: theme.spacing(2),
   },
-  image: {
-    width: 128,
-    height: 128,
+  title: {
+    flexGrow: 1,
   },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
-  },
-});
+}));
 
 export default theme;

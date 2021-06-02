@@ -27,11 +27,11 @@ export default class OtherDetails extends Component {
             {(fieldArrayProps) => {
               const { push, remove, form } = fieldArrayProps;
               const { values } = form;
-              const { experience } = values;
+              const { oQual } = values;
               return (
                 <div>
                     <Typography variant='h4' color='initial'>Other Qualification or Courses</Typography>
-                  {experience.map((experience, index) => (
+                  {oQual.map((oQual, index) => (
                     <div key={index}>
                       <Typography variant='h6' display='inline' color='primary'>Course Name</Typography>
                       <Field name={`oQual[${index}].course`} />
@@ -110,14 +110,13 @@ export default class OtherDetails extends Component {
                   <ErrorMessage name='eMail' component={ErrorMsg} />
                 </div>
                 <Button type='submit' variant='contained' onClick={this.onSubmit}>Submit</Button>
+                <Button variant='contained' onClick={this.back}>Back</Button>
 
                 </Form>
                 </div>
 
                 </div>
                 <div>
-                <Button variant='contained' onClick={this.continue}>Continue</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
                 </div>
             </div>
         )

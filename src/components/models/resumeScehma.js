@@ -1,5 +1,4 @@
 const initialValues = {
-  picture: "",
   name: "",
   fatherName: "",
   DoB: "",
@@ -11,10 +10,11 @@ const initialValues = {
   address: "",
   education: [
     {
-      major: "",
-      totalMarks: "",
-      oMarks: "",
       inst: "",
+      major: "",
+      oMarks: "",
+      totalMarks: "",
+      year: "",
     },
   ],
   experience: [

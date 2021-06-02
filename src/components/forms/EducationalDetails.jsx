@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Typography,Button} from '@material-ui/core';
 
-import { Form, Field, ErrorMessage, FieldArray } from "formik";
-import * as Yup from "yup";
+import { Form, Field, FieldArray } from "formik"; // ErrorMessage,
+// import * as Yup from "yup";
 
 export default class EducationalDetails extends Component {
     continue = (e) => {
@@ -14,20 +14,21 @@ export default class EducationalDetails extends Component {
         this.props.prevStep();
       };
     render() {
-        const ErrorMsg = (props) => {
-            return <div className='error'>{props.children}</div>;
-        };
+        // const ErrorMsg = (props) => {
+        //     return <div className='error'>{props.children}</div>;
+        // };
         return (
             <div>
                 <Typography variant='h4' align='left' >Educational Details</Typography>
                 <div>
                 <Form>
-                <div className='form-control'>
+        <div className='form-control'>
           <FieldArray name='education'>
             {(fieldArrayProps) => {
               const { push, remove, form } = fieldArrayProps;
               const { values } = form;
               const { education } = values;
+              // console.log(education);
               return (
                 <div>
                   {education.map((education, index) => (
@@ -40,6 +41,8 @@ export default class EducationalDetails extends Component {
                       <Field name={`education[${index}].oMarks`} />
                       <Typography variant='h6' display='inline'>Board or Institute</Typography>
                       <Field name={`education[${index}].inst`} />
+                      <Typography variant='h6' display='inline'>Passing Year</Typography>
+                      <Field name={`education[${index}].year`} />
                       {index > 0 && (
                         <Button type='button' onClick={() => remove(index)}>
                           -

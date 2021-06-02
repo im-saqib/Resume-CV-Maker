@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import HomePage from "./components/Welcome";
 
-import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
+import { Formik } from "formik";
 
 import PersonalDetails from "./components/forms/PersonalDetails";
 import EducationalDetails from "./components/forms/EducationalDetails";
@@ -12,6 +12,8 @@ import UploadPhoto from "./components/forms/UploadPhoto";
 import Confirm from "./components/forms/Confirm";
 import PrintPdf from "./components/forms/PrintPdf";
 import Error from "./components/Error";
+
+import Menu from "./components/Menu";
 
 import initialValues from "./components/models/resumeScehma";
 
@@ -37,20 +39,21 @@ export default class App extends Component {
     this.setState({
       data: { values },
     });
+    this.nextStep();
     // *** Helpful for debugging ***
     // console.log("Form data", values);
-    // const { data } = this.state;
-    // console.log("State ", data);
+    const { data } = this.state;
+    console.log("State ", data);
   };
 
   render() {
     const { step, data } = this.state;
     const { values } = data;
-
     switch (step) {
       case 1:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -63,6 +66,7 @@ export default class App extends Component {
       case 2:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -78,6 +82,7 @@ export default class App extends Component {
       case 3:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -93,6 +98,7 @@ export default class App extends Component {
       case 4:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -108,6 +114,7 @@ export default class App extends Component {
       case 5:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -120,6 +127,7 @@ export default class App extends Component {
       case 6:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -132,6 +140,7 @@ export default class App extends Component {
       case 7:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -148,6 +157,7 @@ export default class App extends Component {
       case 8:
         return (
           <div>
+            <Menu value={step} />
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
