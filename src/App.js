@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import HomePage from "./components/Welcome";
 
+import { ThemeProvider } from "@material-ui/core";
 import { Formik } from "formik";
 
 import PersonalDetails from "./components/forms/PersonalDetails";
@@ -13,9 +14,11 @@ import Confirm from "./components/forms/Confirm";
 import PrintPdf from "./components/forms/PrintPdf";
 import Error from "./components/Error";
 
-import Menu from "./components/Menu";
+import Menu from "./components/AppMenu";
 
 import initialValues from "./components/models/resumeScehma";
+
+import theme from "./components/theme.js";
 
 export default class App extends Component {
   state = {
@@ -53,7 +56,7 @@ export default class App extends Component {
       case 1:
         return (
           <div>
-            <Menu value={step} />
+            {/* <Menu value={step} /> */}
             <Formik
               initialValues={initialValues}
               // validationSchema={this.validationSchema}
@@ -72,10 +75,12 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <PersonalDetails
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-              />
+              <ThemeProvider theme={theme}>
+                <PersonalDetails
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );
@@ -88,10 +93,12 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <EducationalDetails
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-              />
+              <ThemeProvider theme={theme}>
+                <EducationalDetails
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );
@@ -104,10 +111,12 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <ExperienceDetails
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-              />
+              <ThemeProvider theme={theme}>
+                <ExperienceDetails
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );

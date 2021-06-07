@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import {Typography,Button} from '@material-ui/core';
+import {Typography,Button, Grid, Card, CardContent} from '@material-ui/core';
 
 import {Form, Field, ErrorMessage, FieldArray } from "formik";
+
+import { TextField } from 'formik-material-ui';
 
 export default class OtherDetails extends Component {
     continue = (e) => {
@@ -18,11 +20,17 @@ export default class OtherDetails extends Component {
           };
         return (
             <div>
-                <Typography variant='h4' align='left' >Other Details</Typography>
+              <Card>
+                <CardContent>
+                <Typography variant='h6' align='center' >Short Courses</Typography>
+                </CardContent>
+              </Card>
             <div>
         <div>
         <Form>
         <div className='form-control'>
+        <Grid  container direction='row' justify="center" alignItems="center">
+        <Grid item xs={12}>
           <FieldArray name='oQual'>
             {(fieldArrayProps) => {
               const { push, remove, form } = fieldArrayProps;
@@ -30,46 +38,111 @@ export default class OtherDetails extends Component {
               const { oQual } = values;
               return (
                 <div>
-                    <Typography variant='h4' color='initial'>Other Qualification or Courses</Typography>
                   {oQual.map((oQual, index) => (
                     <div key={index}>
+                      <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>Course Name</Typography>
-                      <Field name={`oQual[${index}].course`} />
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`oQual[${index}].course`} />
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+                    
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>Major</Typography>
-                      <Field name={`oQual[${index}].skill`} />
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`oQual[${index}].skill`} />
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>Start Date</Typography>
-                      <Field name={`oQual[${index}].start`} />
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`oQual[${index}].start`} />
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>End Date</Typography>
-                      <Field name={`oQual[${index}].end`} />
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`oQual[${index}].end`} />
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>Duration</Typography>
-                      <Field name={`oQual[${index}].duration`} />
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`oQual[${index}].duration`} />
                       {index > 0 && (
-                        <button type='button' onClick={() => remove(index)}>
+                        <Button variant='contained' color='secondary' type='button' onClick={() => remove(index)}>
                           -
-                        </button>
+                        </Button>
                       )}
-                      <button type='button' onClick={() => push("")}>
+                      <Button variant='contained' color='primary' type='button' onClick={() => push("")}>
                         +
-                      </button>
+                      </Button>
+                     </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
                     </div>
                   ))}
                 </div>
               );
             }}
           </FieldArray>
+          </Grid>
+          </Grid>
         </div>
+
+
         <div className='form-control'>
-                <label htmlFor='skills'>Skills</label>
+        <Grid  container direction='row' justify="center" alignItems="center">
+        <Grid item xs={12}>
+                                      <Card>
+                                        <CardContent>
+                                      <Grid  container direction='row' justify="center" alignItems="center">
+                                        <Grid item xs={6}>
+                                          <Typography variant='h6' display='inline' color='primary' htmlFor='skills'>Skills</Typography>
+                                        </Grid>
+                                        <Grid item xs={6}>
                 <FieldArray name='skills'>
                     {(fieldArryaProps)=> {
-                        const {push, remove, form} = fieldArryaProps;
-                        const { values } = form;
-                        const { skills } = values;
-                        return(
-                            <div>
+                      const {push, remove, form} = fieldArryaProps;
+                      const { values } = form;
+                      const { skills } = values;
+                      return(
+                        <div>
                                 {skills.map((skills, index)=>(
-                                    <div key={index}>
-                                        <Field name={`skills[${index}].title`} />
+                                  <div key={index}>
+                                        <Field component={TextField} fullWidth color='secondary' name={`skills[${index}].title`} />
                                         {index > 0 && (
                                             <Button color='secondary' onClick={()=>remove(index)}>-</Button>
                                         )}
@@ -78,11 +151,26 @@ export default class OtherDetails extends Component {
                                 ))}
                             </div>
                         )
-                    }}
+                      }}
                 </FieldArray>
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                      </Card>
+                </Grid>
+                </Grid>
                 </div>
+
                 <div className='form-control'>
-                <label htmlFor='hobbies'>Hobbies</label>
+        <Grid  container direction='row' justify="center" alignItems="center">
+        <Grid item xs={12}>
+                                      <Card>
+                                        <CardContent>
+                                      <Grid  container direction='row' justify="center" alignItems="center">
+                                        <Grid item xs={6}>
+                                          <Typography variant='h6' display='inline' color='primary' htmlFor='hobbies'>Hobbies</Typography>
+                                        </Grid>
+                                        <Grid item xs={6}>
                 <FieldArray name='hobbies'>
                     {(fieldArryaProps)=> {
                         const {push, remove, form} = fieldArryaProps;
@@ -92,7 +180,7 @@ export default class OtherDetails extends Component {
                             <div>
                                 {hobbies.map((hobbies, index)=>(
                                     <div key={index}>
-                                        <Field name={`hobbies[${index}].title`} />
+                                        <Field component={TextField} fullWidth color='secondary' name={`hobbies[${index}].title`} />
                                         {index > 0 && (
                                             <Button color='secondary' onClick={()=>remove(index)}>-</Button>
                                         )}
@@ -101,17 +189,48 @@ export default class OtherDetails extends Component {
                                 ))}
                             </div>
                         )
-                    }}
+                      }}
                 </FieldArray>
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                      </Card>
+    </Grid>
+  </Grid>
                 </div>
                 <div className='form-control'>
-                  <Typography variant='caption' color='primary'>Tag Line</Typography>
-                  <Field type='tagLine' id='tagLine' name='tagLine' />
-                  <ErrorMessage name='eMail' component={ErrorMsg} />
+            <Grid  container direction='row' justify="center" alignItems="center">
+                <Grid item xs={12}>
+                  <Card>
+                    <CardContent>
+                      <Grid  container direction='row' justify="center" alignItems="center">
+                    <Grid item xs={6}>
+                        <Typography variant='h6' color='primary'>Aimbition</Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Field component={TextField} fullWidth color='secondary' type='tagLine' id='tagLine' name='tagLine' />
+                        <ErrorMessage name='tagLine' component={ErrorMsg} />
+                    </Grid>
+                    </Grid>
+                      </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
                 </div>
-                <Button type='submit' variant='contained' onClick={this.onSubmit}>Submit</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
-
+                <div>
+                <Card>
+                  <CardContent>
+              <Grid container direction='row' justify="space-around" alignItems="center">
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='primary' fullWidth type='submit' onClick={this.onSubmit}>Continue</Button>
+                </Grid>
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='secondary' fullWidth onClick={this.back}>Back</Button>
+                </Grid>
+              </Grid>
+                  </CardContent>
+                </Card>
+                </div>
                 </Form>
                 </div>
 

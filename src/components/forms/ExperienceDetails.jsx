@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import {Typography,Button} from '@material-ui/core';
+import {Typography,Button, Grid, Card, CardContent} from '@material-ui/core';
 
 import {Form, Field, FieldArray } from "formik";// ErrorMessage,
+
+import { TextField } from 'formik-material-ui';
 
 export default class ExperienceDetails extends Component {
     continue = (e) => {
@@ -15,10 +17,12 @@ export default class ExperienceDetails extends Component {
     render() {
         return (
             <div>
-                <Typography variant='h4' align='left' >Experience Details</Typography>
+                {/* <Typography variant='h4' align='left' >Experience Details</Typography> */}
                  <div>
                 <Form>
-                <div className='form-control'>
+        <div className='form-control'>
+        <Grid  container direction='row' justify="center" alignItems="center">
+        <Grid item xs={12}>
           <FieldArray name='experience'>
             {(fieldArrayProps) => {
               const { push, remove, form } = fieldArrayProps;
@@ -28,35 +32,90 @@ export default class ExperienceDetails extends Component {
                 <div>
                   {experience.map((experience, index) => (
                     <div key={index}>
-                      <Typography variant='h6' display='inline' color='primary'>Job Title</Typography>
-                      <Field name={`experience[${index}].title`} />
-                      <Typography variant='h6' display='inline' color='primary'>Work Place Name</Typography>
-                      <Field name={`experience[${index}].company`} />
+                      <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='h6' color='primary'>Job Title</Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].title`} />
+                      </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='h6' color='primary'>Work Place Name</Typography>
+                        </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].company`} />
+                      </Grid>
+                      </Grid>
+                        </CardContent>
+                    </Card>
+                      
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>Start Date</Typography>
-                      <Field name={`experience[${index}].start`} />
+                        </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].start`} />
+                     </Grid>
+                      </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
                       <Typography variant='h6' display='inline' color='primary'>End Date</Typography>
-                      <Field name={`experience[${index}].end`} />
+                        </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].end`} />
                       {index > 0 && (
-                        <button type='button' onClick={() => remove(index)}>
+                        <Button variant='contained' color='secondary' type='button' onClick={() => remove(index)}>
                           -
-                        </button>
+                        </Button>
                       )}
-                      <button type='button' onClick={() => push("")}>
+                      <Button variant='contained' color='primary' type='button' onClick={() => push("")}>
                         +
-                      </button>
+                      </Button>
+                      </Grid>
+                      </Grid>
+                        </CardContent>
+                    </Card>
                     </div>
                   ))}
                 </div>
               );
             }}
           </FieldArray>
+          </Grid>
+        </Grid>
         </div>
               
                 </Form>
                 </div>
                 <div>
-                <Button variant='contained' onClick={this.continue}>Continue</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
+                <Card>
+                  <CardContent>
+              <Grid container direction='row' justify="space-around" alignItems="center">
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='primary' fullWidth onClick={this.continue}>Continue</Button>
+                </Grid>
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='secondary' fullWidth onClick={this.back}>Back</Button>
+                </Grid>
+              </Grid>
+                  </CardContent>
+                </Card>
                 </div>
             </div>
         )

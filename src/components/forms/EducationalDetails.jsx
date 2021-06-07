@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import {Typography,Button} from '@material-ui/core';
+import {Typography,Button, Grid, Card, CardContent} from '@material-ui/core';
 
 import { Form, Field, FieldArray } from "formik"; // ErrorMessage,
 // import * as Yup from "yup";
+
+import { TextField } from 'formik-material-ui';
 
 export default class EducationalDetails extends Component {
     continue = (e) => {
@@ -19,10 +21,12 @@ export default class EducationalDetails extends Component {
         // };
         return (
             <div>
-                <Typography variant='h4' align='left' >Educational Details</Typography>
                 <div>
                 <Form>
         <div className='form-control'>
+      <Grid  container direction='row' justify="center" alignItems="center">
+        
+        <Grid item xs={12}>
           <FieldArray name='education'>
             {(fieldArrayProps) => {
               const { push, remove, form } = fieldArrayProps;
@@ -33,37 +37,100 @@ export default class EducationalDetails extends Component {
                 <div>
                   {education.map((education, index) => (
                     <div key={index}>
-                      <Typography variant='h6' display='inline'>Major Subjects</Typography>
-                      <Field name={`education[${index}].major`} />
-                      <Typography variant='h6' display='inline'>Total Marks</Typography>
-                      <Field name={`education[${index}].totalMarks`} />
-                      <Typography variant='h6' display='inline'>Obtained Marks</Typography>
-                      <Field name={`education[${index}].oMarks`} />
-                      <Typography variant='h6' display='inline'>Board or Institute</Typography>
-                      <Field name={`education[${index}].inst`} />
-                      <Typography variant='h6' display='inline'>Passing Year</Typography>
-                      <Field name={`education[${index}].year`} />
+                      <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                          <Typography variant='body1' display='inline'>Major Subjects</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`education[${index}].major`} />
+                        </Grid>
+                    </Grid>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='body1' display='inline'>Total Marks</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`education[${index}].totalMarks`} />
+                        </Grid>
+                        </Grid>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='body1' display='inline'>Obtained Marks</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`education[${index}].oMarks`} />
+                        </Grid>
+                    </Grid>
+                    </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='body1' display='inline'>Board or Institute</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`education[${index}].inst`} />
+                        </Grid>
+                      </Grid>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='body1' display='inline'>Passing Year</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`education[${index}].year`} />
+                        </Grid>
+                    </Grid>
+                        
                       {index > 0 && (
-                        <Button type='button' onClick={() => remove(index)}>
+                        <Button variant='contained' color='secondary' type='button' onClick={() => remove(index)}>
                           -
                         </Button>
                       )}
-                      <Button type='button' onClick={() => push("")}>
+                      <Button variant='contained' color='primary' type='button' onClick={() => push("")}>
                         +
                       </Button>
+                      </CardContent>
+                    </Card>
                     </div>
                   ))}
                 </div>
               );
             }}
           </FieldArray>
+          </Grid>
+        </Grid>
         </div>
               
                 </Form>
                 </div>
                 <div>
-                <Button variant='contained' onClick={this.continue}>Continue</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
+                <Card>
+                  <CardContent>
+              <Grid container direction='row' justify="space-around" alignItems="center">
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='primary' fullWidth onClick={this.continue}>Continue</Button>
+                </Grid>
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='secondary' fullWidth onClick={this.back}>Back</Button>
+                </Grid>
+              </Grid>
+                  </CardContent>
+                </Card>
                 </div>
             </div>
         )

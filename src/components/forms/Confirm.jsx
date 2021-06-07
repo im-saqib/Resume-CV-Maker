@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Form} from "formik"; // Field, ErrorMessage, FieldArray ,
-import {ThemeProvider,Typography, Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, ListItem  } from '@material-ui/core';//ButtonBase, Paper
+import {ThemeProvider,Typography, Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Card, CardContent  } from '@material-ui/core';//ButtonBase, Paper
 
 import theme from '../theme.js';
 
@@ -43,14 +43,16 @@ export default class Confirm extends Component {
 
         return (
             <ThemeProvider theme={theme}>
-                <Typography variant='h6' align='left' color={color}>{msg} {name}</Typography>
                 <Grid  container direction="row" justify="center" alignItems="center">
-                <Grid item xs={10} component={Paper}>
+                <Grid item xs={10}>
                 <Form>
                 <div>
+                      <Card>
+                <Typography variant='h6' align='center' color={color}>{msg} {name}</Typography>
+                        <CardContent>
                     <Grid  container justify="center" alignItems="center">
                         <Grid item xs={6}><Typography display='inline'>Name: </Typography></Grid>
-                        <Grid item xs={6}><Typography variant='h4'  display='inline' >{name}</Typography></Grid>
+                        <Grid item xs={6}><Typography variant='h5'  display='inline' >{name}</Typography></Grid>
                     
                         <Grid item xs={6}><Typography display='inline'>Father Name: </Typography></Grid>
                         <Grid item xs={6}><Typography  display='inline' >{fatherName}</Typography></Grid>
@@ -86,6 +88,8 @@ export default class Confirm extends Component {
                         <Grid item xs={6}><Typography display='inline'>Address </Typography></Grid>
                         <Grid item xs={6}><Typography  display='inline' >{address}</Typography></Grid>
                     </Grid>
+                        </CardContent>
+                      </Card>
 
                     <Typography variant='h6'>Education</Typography>
                     <Grid container>
