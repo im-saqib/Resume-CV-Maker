@@ -19,6 +19,9 @@ import Menu from "./components/AppMenu";
 import initialValues from "./components/models/resumeScehma";
 
 import theme from "./components/theme.js";
+import LayoutOne from "./components/forms/LayoutOne";
+import LayoutTwo from "./components/forms/LayoutTwo";
+import Selection from "./components/Selection";
 
 export default class App extends Component {
   state = {
@@ -37,6 +40,21 @@ export default class App extends Component {
       step: step - 1,
     });
   };
+  selection = () => {
+    this.setState({
+      step: 8,
+    });
+  };
+  layOutOne = () => {
+    this.setState({
+      step: 9,
+    });
+  };
+  layOutTwo = () => {
+    this.setState({
+      step: 10,
+    });
+  };
   initialValues = initialValues;
   onSubmit = (values) => {
     this.setState({
@@ -45,8 +63,8 @@ export default class App extends Component {
     this.nextStep();
     // *** Helpful for debugging ***
     // console.log("Form data", values);
-    const { data } = this.state;
-    console.log("State ", data);
+    // const { data } = this.state;
+    // console.log("State ", data);
   };
 
   render() {
@@ -129,7 +147,12 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <OtherDetails nextStep={this.nextStep} prevStep={this.prevStep} />
+              <ThemeProvider theme={theme}>
+                <OtherDetails
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );
@@ -142,7 +165,12 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <UploadPhoto nextStep={this.nextStep} prevStep={this.prevStep} />
+              <ThemeProvider theme={theme}>
+                <UploadPhoto
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );
@@ -155,11 +183,13 @@ export default class App extends Component {
               // validationSchema={this.validationSchema}
               onSubmit={this.onSubmit}
             >
-              <Confirm
-                values={values}
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-              />
+              <ThemeProvider theme={theme}>
+                <Confirm
+                  values={values}
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                />
+              </ThemeProvider>
             </Formik>
           </div>
         );
@@ -167,15 +197,38 @@ export default class App extends Component {
         return (
           <div>
             <Menu value={step} />
-            <Formik
-              initialValues={initialValues}
-              // validationSchema={this.validationSchema}
-              onSubmit={this.onSubmit}
-            >
-              <PrintPdf nextStep={this.nextStep} prevStep={this.prevStep} />
+            <Formik initialValues={initialValues} onSubmit={this.onSubmit}>
+              <Selection
+                prevStep={this.prevStep}
+                layOutOne={this.layOutOne}
+                layOutTwo={this.layOutTwo}
+                values={values}
+              />
             </Formik>
           </div>
         );
+      case 9: {
+        return (
+          <div>
+            <Formik>
+              <ThemeProvider theme={theme}>
+                <LayoutOne values={values} selection={this.selection} />
+              </ThemeProvider>
+            </Formik>
+          </div>
+        );
+      }
+      case 10: {
+        return (
+          <div>
+            <Formik>
+              <ThemeProvider theme={theme}>
+                <LayoutTwo values={values} selection={this.selection} />
+              </ThemeProvider>
+            </Formik>
+          </div>
+        );
+      }
       default:
         return <Error />;
     }

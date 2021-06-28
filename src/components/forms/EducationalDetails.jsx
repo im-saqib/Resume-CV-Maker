@@ -32,7 +32,6 @@ export default class EducationalDetails extends Component {
               const { push, remove, form } = fieldArrayProps;
               const { values } = form;
               const { education } = values;
-              // console.log(education);
               return (
                 <div>
                   {education.map((education, index) => (
@@ -53,7 +52,7 @@ export default class EducationalDetails extends Component {
                         <CardContent>
                     <Grid  container direction='row' justify="center" alignItems="center">
                         <Grid item xs={6}>
-                      <Typography variant='body1' display='inline'>Total Marks</Typography>
+                      <Typography variant='body1' display='inline'>Total Marks/ CGPA</Typography>
                         </Grid>
                         <Grid item xs={6}>
                       <Field component={TextField} fullWidth color='secondary' name={`education[${index}].totalMarks`} />
@@ -65,7 +64,7 @@ export default class EducationalDetails extends Component {
                         <CardContent>
                     <Grid  container direction='row' justify="center" alignItems="center">
                         <Grid item xs={6}>
-                      <Typography variant='body1' display='inline'>Obtained Marks</Typography>
+                      <Typography variant='body1' display='inline'>Obtained Marks/ CGPA</Typography>
                         </Grid>
                         <Grid item xs={6}>
                       <Field component={TextField} fullWidth color='secondary' name={`education[${index}].oMarks`} />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Typography,Button} from '@material-ui/core';
 
+import LayoutOne from './LayoutOne.jsx';
+
 export default class PrintPdf extends Component {
     continue = (e) => {
         e.preventDefault();
@@ -13,7 +15,8 @@ export default class PrintPdf extends Component {
     render() {
         return (
             <div>
-                <Typography variant='h4' align='left' >Print or Download</Typography>
+                <Typography variant='h4' align='left' >Please Choose LayOut</Typography>
+                <LayoutOne values={this.props}/>
                 <Button variant='contained' onClick={this.back}>Back</Button>
             </div>
         )

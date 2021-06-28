@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Typography,Button, Grid, Card, CardContent} from '@material-ui/core';
+import {Typography,Button, Grid, Card, CardContent, Divider} from '@material-ui/core';
 
 import { TextField } from 'formik-material-ui';
 
@@ -198,14 +198,21 @@ export default class PersonalDetails extends Component {
                         </div>
                 </Form>
             </div>
-            <Grid container direction='row' justify="space-around" alignItems="center">
+            <Divider />
+            <div>
+            <Card>
+                  <CardContent>
+              <Grid container direction='row' justify="space-around" alignItems="center">
                 <Grid item xs={6} lg={3}>
                     <Button variant='contained' color='primary' fullWidth onClick={this.continue}>Continue</Button>
                 </Grid>
                 <Grid item xs={6} lg={3}>
                     <Button variant='contained' color='secondary' fullWidth onClick={this.back}>Back</Button>
                 </Grid>
-            </Grid>
+              </Grid>
+                  </CardContent>
+                </Card>
+            </div>
             </div>
         )
     }

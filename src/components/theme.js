@@ -1,4 +1,8 @@
-import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  makeStyles,
+  responsiveFontSizes,
+} from "@material-ui/core/styles";
 // import purple from "@material-ui/core/colors/purple";
 import deepPurple from "@material-ui/core/colors/deepPurple";
 import deepOrange from "@material-ui/core/colors/deepOrange";
@@ -11,26 +15,17 @@ export const useStyles = makeStyles((theme) => ({
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-    // color: "white",
-    [theme.breakpoints.down("sm")]: {
-      color: theme.palette.secondary.main,
-    },
-    [theme.breakpoints.up("md")]: {
-      color: theme.palette.primary.main,
-    },
-    [theme.breakpoints.up("lg")]: {
-      color: deepPurple[500],
-    },
+    color: "white",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  // menuButton: {
+  //   marginRight: theme.spacing(2),
+  // },
   title: {
     flexGrow: 1,
   },
 }));
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: deepPurple,
     secondary: deepOrange,
@@ -43,5 +38,25 @@ const theme = createMuiTheme({
     flexGrow: 1,
   },
 });
+let layoutOne = createMuiTheme({
+  typography: {
+    fontFamily: ["Times New Roman", "serif"].join(","),
+  },
+  root: {
+    flexGrow: 1,
+  },
+});
 
+let layoutTwo = createMuiTheme({
+  typography: {
+    fontFamily: ["Merriweather", "serif"].join(","),
+  },
+  root: {
+    flexGrow: 1,
+  },
+});
+layoutOne = responsiveFontSizes(layoutOne);
+layoutTwo = responsiveFontSizes(layoutTwo);
+export { layoutOne, layoutTwo };
+theme = responsiveFontSizes(theme);
 export default theme;

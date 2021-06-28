@@ -2,3 +2,23 @@ body {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #section-to-print,
+  #section-to-print * {
+    visibility: visible;
+    -webkit-print-color-adjust: exact;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

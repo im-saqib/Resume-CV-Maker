@@ -79,6 +79,19 @@ export default class ExperienceDetails extends Component {
                         </Grid>
                       <Grid item xs={6}>
                       <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].end`} />
+                     </Grid>
+                      </Grid>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardContent>
+                    <Grid  container direction='row' justify="center" alignItems="center">
+                        <Grid item xs={6}>
+                      <Typography variant='h6' display='inline' color='primary'>Duration</Typography>
+                        </Grid>
+                      <Grid item xs={6}>
+                      <Field component={TextField} fullWidth color='secondary' name={`experience[${index}].duration`} />
                       {index > 0 && (
                         <Button variant='contained' color='secondary' type='button' onClick={() => remove(index)}>
                           -

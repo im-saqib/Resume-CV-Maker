@@ -1,4 +1,5 @@
 const initialValues = {
+  image: "",
   name: "",
   fatherName: "",
   DoB: "",
@@ -23,6 +24,7 @@ const initialValues = {
       company: "",
       start: "",
       end: "",
+      duration: "",
     },
   ],
   oQual: [

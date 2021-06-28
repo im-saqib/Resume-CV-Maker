@@ -3,18 +3,20 @@ import React, { Component } from 'react';
 
 import {
     ThemeProvider, Typography, Card, Button, CardContent,
-    List ,ListItem, ListItemText ,Divider, Grid, Link 
+    List ,ListItem, ListItemText ,Divider, Grid, Link
 } from '@material-ui/core';
 
 import theme from './theme';
 
-import Header from './Header.jsx'
+import Header from './Header.jsx';
+import FrontImg from './FrontImg.jsx';
 
 export default class Welcome extends Component {
     continue = (e) => {
         e.preventDefault();
         this.props.nextStep();
       };
+      
     render() {
         return (
             <ThemeProvider theme={theme}>
@@ -54,8 +56,8 @@ export default class Welcome extends Component {
                     </CardContent>
                 </Card>
                            </Grid>
-                           <Grid>
-
+                           <Grid item sm={12} lg={6}>
+                            <FrontImg />
                            </Grid>
                        </Grid>
 
