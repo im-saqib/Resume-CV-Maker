@@ -7,6 +7,9 @@ import {
 
 import { layoutTwo } from './theme.js';
 
+import img from './images/Resume-layout1.jpg';
+import img2 from './images/layout2.jpg';
+
 export default function Selection (props) {
     const back = (e) => {
         e.preventDefault();
@@ -31,7 +34,7 @@ export default function Selection (props) {
                     <Card style={{textAlign:'center'}}>
                         <CardMedia 
                         component="img"
-                        image={"/static/media/Resume-layout1.73796bd3.jpg"} 
+                        image={img} 
                         title='Resume Layout One'
                         />
                             <CardContent>
@@ -49,7 +52,7 @@ export default function Selection (props) {
                     <Card style={{textAlign:'center'}}>
                         <CardMedia 
                         component="img"
-                        image={"/static/media/layout2.cbfa093c.jpg"} 
+                        image={img2} 
                         title='Resume Layout One'
                         />
                             <CardContent>

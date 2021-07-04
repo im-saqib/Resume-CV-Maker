@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
     ThemeProvider, makeStyles, Typography, Grid, Paper,
-     List, ListItem, ListItemText, Card, CardContent, Divider, Link, } from '@material-ui/core';
+     List, ListItem, Card, CardContent, Divider, Link, } from '@material-ui/core';
 
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -65,42 +65,17 @@ export default function About() {
                         <Card>
                                 <CardContent>
                                 <Typography gutterBottom color='primary' align='center' variant='h3'>
-                                    How to use?
+                                    Planned Upgrades
                                 </Typography>
                                 <Divider />
                                 <Typography color='primary' align='left' variant='h6'>
-                                    Make an Awesome Resume in 1..2..3..
+                                    Layouts & Mobile Application
                                 </Typography>
                                 <Typography color='textPrimary' align='left' variant='body1'>
-                                    <List>
-                                        <ListItem>
-                                            Enter Your Credentials
-                                        </ListItem>
-                                        <ListItem>
-                                            Select Layout
-                                        </ListItem>
-                                        <ListItem>
-                                            Print or Save as PDF
-                                        </ListItem>
-                                    </List>
-                                    <Typography color='secondary' align='justify' variant='h6'>
-                                        Do Not Refresh your browser window while entering your credentials.
-                                        You will loose all entered data if you refresh browser page.
-                                        Use Continue and Back buttons at bottom of page to scroll around application.
-                                    </Typography>
+                                    Currently Resume Maker has two layouts to choose from. With future upgrades
+                                     i'll add two more layouts. I'm also looking forward to launch Android and
+                                     iOS applications. Obviously this is going to take sometime...
                                 </Typography>
-                                <List >
-                                <ListItemText color=''>Personal Details</ListItemText>
-                                <ListItem>Enter your personal information e.g. your full name, father name, contact details etc.</ListItem>
-                                <ListItemText color=''>Education Details</ListItemText>
-                                <ListItem>Enter details about accademic career e.g. passed or continued degrees / school diplomas</ListItem>
-                                <ListItemText color=''>Jobs Experience</ListItemText>
-                                <ListItem>Enter details about work/job experiences</ListItem>
-                                <ListItemText color=''>Other Details</ListItemText>
-                                <ListItem>
-                                    This page contains different fields, you can enter details about your professinal diplomas , your skills, hobbies and your aim.
-                                </ListItem>
-                            </List>
                                 </CardContent>
                             </Card>
                         </Grid>
