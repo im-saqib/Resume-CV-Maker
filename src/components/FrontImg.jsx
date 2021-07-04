@@ -1,22 +1,22 @@
 import React from 'react'
 
-import { useTheme, useMediaQuery, Card, CardMedia } from '@material-ui/core/';
+import { useMediaQuery, Card, CardMedia } from '@material-ui/core/';
 
 import resume from './images/Resume.jpg';
+import theme from './theme';
 
 export default function FrontImg() {
-    const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
   if(matches){
           return (
                 <div>
-                    <Card>
+                    <Card >
                         <CardMedia
                         component="img"
                         alt="Resume"
                         image= {resume}
-                        height= "380"
+                        height= "450"
                         title='Resume Image'/>
                     </Card>
                 </div>

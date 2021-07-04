@@ -5,16 +5,16 @@ import HomePage from "./components/Welcome";
 import { ThemeProvider } from "@material-ui/core";
 import { Formik } from "formik";
 
+// Forms
 import PersonalDetails from "./components/forms/PersonalDetails";
 import EducationalDetails from "./components/forms/EducationalDetails";
 import ExperienceDetails from "./components/forms/ExperienceDetails";
 import OtherDetails from "./components/forms/OtherDetails";
 import UploadPhoto from "./components/forms/UploadPhoto";
 import Confirm from "./components/forms/Confirm";
-import PrintPdf from "./components/forms/PrintPdf";
 import Error from "./components/Error";
-
 import Menu from "./components/AppMenu";
+import HowTo from "./components/forms/HowTo";
 
 import initialValues from "./components/models/resumeScehma";
 
@@ -25,7 +25,7 @@ import Selection from "./components/Selection";
 
 export default class App extends Component {
   state = {
-    step: 1,
+    step: 0,
     data: "",
   };
   nextStep = () => {
@@ -71,7 +71,7 @@ export default class App extends Component {
     const { step, data } = this.state;
     const { values } = data;
     switch (step) {
-      case 1:
+      case 0:
         return (
           <div>
             {/* <Menu value={step} /> */}
@@ -81,6 +81,19 @@ export default class App extends Component {
               onSubmit={this.onSubmit}
             >
               <HomePage nextStep={this.nextStep} />
+            </Formik>
+          </div>
+        );
+      case 1:
+        return (
+          <div>
+            {/* <Menu value={step} /> */}
+            <Formik
+              initialValues={initialValues}
+              // validationSchema={this.validationSchema}
+              onSubmit={this.onSubmit}
+            >
+              <HowTo nextStep={this.nextStep} prevStep={this.prevStep} />
             </Formik>
           </div>
         );
@@ -167,6 +180,7 @@ export default class App extends Component {
             >
               <ThemeProvider theme={theme}>
                 <UploadPhoto
+                  values={values}
                   nextStep={this.nextStep}
                   prevStep={this.prevStep}
                 />

@@ -18,8 +18,6 @@ import {
 
 import {layoutTwo} from '../theme.js';
 
-import avatar from '../images/saqib.jpg';
-
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
@@ -86,11 +84,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
       '@media (max-width:600px)': {
         fontSize: 10,
-        // color: 'green'
       },
       '@media (max-width:440px)': {
         fontSize: 8,
-        // color: 'blue'
       },
     },
     icon:{
@@ -101,6 +97,7 @@ const useStyles = makeStyles((theme) => ({
 function LayoutTwoPrint(props) {
     const classes = useStyles();
     const {
+        image,
         name,
         DoB,
         age,
@@ -120,7 +117,6 @@ function LayoutTwoPrint(props) {
     return (
         <ThemeProvider theme={layoutTwo}>
          <div id='section-to-print'>
-           
             <Grid  container direction="column" justify="center" alignItems="center">
                 <Grid  container direction="row" justify="center" alignItems="center">
                 <Grid item xs={12}>
@@ -128,7 +124,7 @@ function LayoutTwoPrint(props) {
                         <Grid item xs={3}>
                             <Card>
                               <CardContent>
-                                <Avatar className={classes.large} alt="avatar" src={avatar} />
+                                <Avatar className={classes.large} alt="avatar" src={image} />
                               </CardContent>
                             </Card>
                             <Card>
@@ -215,18 +211,14 @@ function LayoutTwoPrint(props) {
                                 <Card>
                                   <CardContent>
                                     <Typography align='center' className={classes.head}>Profesional Experience</Typography>
-                                    <Typography className={classes.size}>
-                                      I have worked in following places with utter devotion and conscientious.
-                                      I have increased productivty with my out of the box and time saving ideas.
-                                      Recommendation letter from these work places are proof of my earnest hardwork.  
-                                    </Typography>
+                                    
                                   </CardContent>
                                 </Card>
                         <TableContainer component={Paper}>
                         <Table size='small'>
                             <TableRow>
                               <TableCell  align="center" className={classes.head}>Job Title</TableCell>
-                              <TableCell align="center" className={classes.head}>Company/Business</TableCell>
+                              <TableCell align="center" className={classes.head}>Company/Department</TableCell>
                               <TableCell align="center" className={classes.head}>Start Date</TableCell>
                               <TableCell align="center" className={classes.head}>End Date</TableCell>
                               <TableCell align="center" className={classes.head}>Duration</TableCell>

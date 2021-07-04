@@ -52,7 +52,7 @@ function LayoutOnePrint(props) {
         <div id='section-to-print' className= {classes.page} >
         <ThemeProvider theme={layoutOne}>
             <Grid  container direction="row" justify="center" alignItems="center">
-                <Grid item xs={11}>
+                <Grid item xs={12}>
                 <Card>
                  <CardContent>
                         <Typography variant='h3' align='center' className={classes.heading} gutterBottom>
@@ -108,8 +108,8 @@ function LayoutOnePrint(props) {
                           <TableHead>
                             <TableRow >
                               <TableCell align="center" className={classes.head}>Major Subjects</TableCell>
-                              <TableCell align="center" className={classes.head}>Total Marks</TableCell>
-                              <TableCell align="center" className={classes.head}>Obtained Marks</TableCell>
+                              <TableCell align="center" className={classes.head}>Total Marks/CGPA</TableCell>
+                              <TableCell align="center" className={classes.head}>Obtained Marks/CGPA</TableCell>
                               <TableCell align="center" className={classes.head}>Institute</TableCell>
                               <TableCell align="center" className={classes.head}>Passing Year</TableCell>
                             </TableRow>
@@ -181,9 +181,10 @@ function LayoutOnePrint(props) {
                           <TableHead component='thead'>
                             <TableRow>
                               <TableCell  align="center" className={classes.head}>Job Title</TableCell>
-                              <TableCell align="center" className={classes.head}>Company/Business</TableCell>
+                              <TableCell align="center" className={classes.head}>Company/Department</TableCell>
                               <TableCell align="center" className={classes.head}>Start Date</TableCell>
                               <TableCell align="center" className={classes.head}>End Date</TableCell>
+                              <TableCell align="center" className={classes.head}>Duration</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -193,6 +194,7 @@ function LayoutOnePrint(props) {
                                 <TableCell align="center">{elements.company}</TableCell>
                                 <TableCell align="center">{elements.start}</TableCell>
                                 <TableCell align="center">{elements.end}</TableCell>
+                                <TableCell align="center">{elements.duration}</TableCell>
                               </TableRow>
                     ))}
                     </TableBody>
@@ -206,10 +208,10 @@ function LayoutOnePrint(props) {
                     {
                         skills[0].title !== "" && 
                             <>
-                            <Grid item xs={3}><Typography variant='h5'>Skills:-</Typography><Divider /></Grid>
+                            <Grid item xs={3}><Typography variant='h6'>Skills:-</Typography><Divider /></Grid>
                             
                             <Grid item xs={12}>{skills.map((element, id)=>(
-                                <Typography variant='h6' display='inline'>{element.title}, </Typography>
+                                <Typography variant='body1' display='inline'>{element.title}, </Typography>
                         ))}
                         </Grid>
                             </>
@@ -218,16 +220,17 @@ function LayoutOnePrint(props) {
                         {
                             hobbies[0].title !== "" && 
                             <>
-                            <Grid item xs={3}><Typography variant='h5'>Hobbies: </Typography><Divider /></Grid>
+                            <Grid item xs={3}><Typography variant='h6'>Hobbies: </Typography><Divider /></Grid>
                             <Grid item xs={12}>{hobbies.map((element, id)=>(
-                                <Typography variant='h6' display='inline'>{element.title}, </Typography>
+                                <Typography variant='body1' display='inline'>{element.title}, </Typography>
                         ))}
                         </Grid>
                             </>
                         }
                         <Divider />
 
-                        <Grid item xs={10}><Typography variant='h5' display='inline' >{tagLine}</Typography></Grid>
+                        <Grid item xs={10}><Typography variant='h6' display='inline' >Objective:</Typography></Grid>
+                        <Grid item xs={10}><Typography variant='h6' display='inline' >{tagLine}</Typography></Grid>
                         </CardContent>
                       </Card>
 

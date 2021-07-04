@@ -122,7 +122,11 @@ export default class OtherDetails extends Component {
           </Grid>
         </div>
 
-
+            <Card>
+                <CardContent>
+                <Typography variant='h6' align='center' >Other Details</Typography>
+                </CardContent>
+              </Card>
         <div className='form-control'>
         <Grid  container direction='row' justify="center" alignItems="center">
         <Grid item xs={12}>
@@ -172,8 +176,8 @@ export default class OtherDetails extends Component {
                                         </Grid>
                                         <Grid item xs={6}>
                 <FieldArray name='hobbies'>
-                    {(fieldArryaProps)=> {
-                        const {push, remove, form} = fieldArryaProps;
+                    {(fieldArrayProps)=> {
+                        const {push, remove, form} = fieldArrayProps;
                         const { values } = form;
                         const { hobbies } = values;
                         return(
@@ -205,7 +209,7 @@ export default class OtherDetails extends Component {
                     <CardContent>
                       <Grid  container direction='row' justify="center" alignItems="center">
                     <Grid item xs={6}>
-                        <Typography variant='h6' color='primary'>Aimbition</Typography>
+                        <Typography variant='h6' color='primary'>Objective</Typography>
                     </Grid>
                     <Grid item xs={6}>
                         <Field component={TextField} fullWidth color='secondary' type='tagLine' id='tagLine' name='tagLine' />

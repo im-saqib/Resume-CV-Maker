@@ -1,81 +1,97 @@
 import React, { Component } from 'react';
 
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+import About from "../pages/About";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
+import FrontImg from './FrontImg.jsx';
 
 import {
-    ThemeProvider, Typography, Card, Button, CardContent,
-    List ,ListItem, ListItemText ,Divider, Grid, Link
+    ThemeProvider, Typography, Card, CardContent, Grid, Grow, makeStyles 
 } from '@material-ui/core';
 
 import theme from './theme';
-
-import Header from './Header.jsx';
-import FrontImg from './FrontImg.jsx';
-
-export default class Welcome extends Component {
-    continue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
-      };
-      
-    render() {
+const useStyles = makeStyles((theme)=>({
+    frontPage: {
+        height : 450,
+        padding: theme.spacing(1),
+    },
+    space: {
+        padding: theme.spacing(2),
+    }
+}));
+// Handled below in Welcome component
+function Home (props) {
+    const classes = useStyles();
         return (
-            <ThemeProvider theme={theme}>
-                <Header />
+              <ThemeProvider theme={theme}>
                 <Grid
                     container
-                    // direction="column"
                     justify="center"
                     alignItems="stretch"
                 >
                     <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant='h6' display='inline'>Free Resume Maker</Typography>
-                                <Button color='primary' onClick={this.continue}>Start Here</Button>
-                            </CardContent>
-                        </Card>
                        <Grid container>
-                           <Grid item sm={12} lg={6}>
-                <Card>
+                           <Grid item sm={12} md={6}>
+                <Card className={classes.frontPage} >
                     <CardContent>
-                           <Typography variant='h6' color='secondary'>
-                            Please read these instructions carefully...
-                        </Typography>
-                            <List >
-                                <ListItemText color=''>Personal Details</ListItemText>
-                                <ListItem>Enter your personal information e.g. your full name, father name, contact details etc.</ListItem>
-                                <ListItemText color=''>Education Details</ListItemText>
-                                <ListItem>Enter details about accademic career e.g. passed or continued degrees / school diplomas</ListItem>
-                                <ListItemText color=''>Jobs Experience</ListItemText>
-                                <ListItem>Enter details about work/job experiences</ListItem>
-                                <ListItemText color=''>Other Details</ListItemText>
-                                <ListItem>
-                                    This page contains different fields, you can enter details about your professinal diplomas , your skills, hobbies and your aim.
-                                </ListItem>
-                            </List>
+                        <Grow in={true}>
+                           <Typography variant='h3' className={classes.space} color='primary'>
+                                Create Your Resume in minutes...
+                            </Typography>
+                        </Grow>
+                        <Grow in={true} timeout={2000}>
+                            <Typography variant='h5' className={classes.space}>
+                                Enter your credentials
+                            </Typography>
+                        </Grow>
+                        <Grow in={true} timeout={3000} className={classes.space}>
+                            <Typography variant='h4'>
+                                Choose Layout
+                            </Typography>
+                        </Grow>
+                        <Grow in={true} timeout={4000} className={classes.space}>
+                            <Typography variant='h3'>
+                                Print or Save PDF
+                            </Typography>
+                        </Grow>
                     </CardContent>
                 </Card>
                            </Grid>
-                           <Grid item sm={12} lg={6}>
+                           <Grid item sm={12} md={6}>
                             <FrontImg />
                            </Grid>
                        </Grid>
 
                     </Grid>
                     <Grid item xs={12}>
-                <Card >
-                    <Divider/>
-                    <Typography variant='body2' align='center'>© Copyright 2021</Typography>
-                    <Typography variant='body2' align='center'>This application is proudly developed by</Typography>
-                    <Typography variant='body1' align='center' color='secondary'>Muhammad Saqib</Typography>
-                    <Typography variant='body2' align='center'>
-                    Follow me on <Link href='https://www.github.com/im-saqib'>github</Link> and <Link href='https://www.facebook.com/amazonwebservicespk'>
-                    Facebook</Link> for more free, open source awesome projects.
-                    </Typography>
-                </Card>
+                        <Footer />
                     </Grid>
                 </Grid>
             </ThemeProvider>
+        )
+}
+
+export default class Welcome extends Component {
+    render() {
+        return (
+            <>
+               <Router>
+                    <div>
+                            <Header nextStep={this.props.nextStep}/>
+                            {/* Go To Header.jsx in Components */}
+                    </div>
+                        <Switch>
+                            <Route path='/about' ><About /></Route>
+                            <Route path='/privacypolicy' ><PrivacyPolicy /></Route>
+                            <Route path='/' exact><Home /></Route>
+                            {/* Go to pages folder in src folder */}
+                        </Switch>
+             </Router> 
+            </>
         )
     }
 }

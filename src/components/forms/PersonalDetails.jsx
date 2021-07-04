@@ -22,8 +22,7 @@ export default class PersonalDetails extends Component {
         
         return (
             <div>
-                    {/* <Typography variant='h6' align='center' color='action' >Personal Details</Typography> */}
-                <div>
+                 <div>
                     <Form>
                         <div className='form-control'>
                     <Card>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Form} from "formik"; // Field, ErrorMessage, FieldArray ,
+import {Form} from "formik";
 import {
   ThemeProvider,Typography, Button, Grid, Paper,
   Table, TableBody, TableCell, TableContainer, TableHead,
-  TableRow, Card, CardContent } from '@material-ui/core';//ButtonBase, Paper
+  TableRow, Card, CardContent, Divider } from '@material-ui/core';
 
 import theme from '../theme.js';
 
@@ -139,6 +139,7 @@ export default class Confirm extends Component {
                               <TableCell align="center" variant='head'>Company/Business</TableCell>
                               <TableCell align="center" variant='head'>Start Date</TableCell>
                               <TableCell align="center" variant='head'>End Date</TableCell>
+                              <TableCell align="center" variant='head'>Duration</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>
@@ -148,6 +149,7 @@ export default class Confirm extends Component {
                                 <TableCell align="center">{elements.company}</TableCell>
                                 <TableCell align="center">{elements.start}</TableCell>
                                 <TableCell align="center">{elements.end}</TableCell>
+                                <TableCell align="center">{elements.duration}</TableCell>
                               </TableRow>
                     ))}
                     </TableBody>
@@ -193,7 +195,8 @@ export default class Confirm extends Component {
                     </Grid>
                         </>
                     }
-
+                <Card>
+                  <CardContent>
                         {
                             skills[0].title !== "" && 
                             <>
@@ -216,16 +219,26 @@ export default class Confirm extends Component {
                             </>
                         }
 
-                        <Grid item xs={10}><Typography variant='h5' display='inline' >{tagLine}</Typography></Grid>
+                        <Grid item xs={10}><Typography display='inline' >Objective:</Typography></Grid>
+                        <Grid item xs={12}><Typography display='inline' >{tagLine}</Typography></Grid>
+                  </CardContent>
+                </Card>
                             
                 </div>
-</Form>
-
-
-                <div >
-                <Button variant='contained' onClick={this.continue}>Continue</Button>
-                <Button variant='contained' onClick={this.back}>Back</Button>
-                </div>
+            </Form>
+            <Divider />
+            <Card>
+                  <CardContent>
+              <Grid container direction='row' justify="space-around" alignItems="center">
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='primary' fullWidth onClick={this.continue}>Continue</Button>
+                </Grid>
+                <Grid item xs={6} lg={3}>
+                    <Button variant='contained' color='secondary' fullWidth onClick={this.back}>Back</Button>
+                </Grid>
+              </Grid>
+                  </CardContent>
+                </Card>
                 </Grid>
                 </Grid>
             </ThemeProvider>
