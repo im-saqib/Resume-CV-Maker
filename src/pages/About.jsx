@@ -34,7 +34,7 @@ export default function About() {
                 <Grid container justify='center' alignContent='center' alignItems='center' className={classes.root}>
                     <Grid item xs={12}>
                     <Grid container justify='center' alignContent='center' alignItems='center'>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                             <Card>
                                 <CardContent>
                                 <Typography color='secondary' align='center' variant='h3'>
@@ -54,14 +54,14 @@ export default function About() {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
 
                         </Grid>
 
 
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                         <Card>
                                 <CardContent>
                                 <Typography gutterBottom color='primary' align='center' variant='h3'>
@@ -80,7 +80,7 @@ export default function About() {
                             </Card>
                         </Grid>
 
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                             <Card>
                                 <CardContent>
                                 <Typography gutterBottom color='primary' align='center' variant='h3'>
@@ -101,14 +101,14 @@ export default function About() {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
 
                         </Grid>
 
                         
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={6} lg={6} sm={11}>
                         <Card>
                                 <CardContent>
                                 <Typography gutterBottom color='primary' align='center' variant='h3'>
